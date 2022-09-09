@@ -1,6 +1,6 @@
 import { useCallback, useState, useRef } from "react";
 import { useNavigate } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   AppBar,
@@ -19,10 +19,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { signOut } from "src/store/slicers/auth";
-import { getAdminUser } from "store/slicers/users";
+import { signOut } from "../../store/slicers/auth";
+// import { getAdminUser } from "store/slicers/users";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     backgroundColor: "transparent !important",
     width: "100%  !important",
@@ -65,7 +65,7 @@ const TopBar = ({ onMobileNavOpen }: { onMobileNavOpen: () => void }) => {
   const navigate = useNavigate();
   const configIconRef = useRef(null);
   const [areSettingsOpen, setAreSettingsOpen] = useState(false);
-  const adminData = useSelector(getAdminUser);
+  // const adminData = useSelector(getAdminUser);
 
   const logOutAction = useCallback(() => {
     dispatch(signOut());
@@ -99,7 +99,7 @@ const TopBar = ({ onMobileNavOpen }: { onMobileNavOpen: () => void }) => {
                 horizontal: "right",
               }}
             >
-              <MenuItem
+              {/* <MenuItem
                 dense
                 component={Link}
                 to="/admin/profile"
@@ -109,9 +109,9 @@ const TopBar = ({ onMobileNavOpen }: { onMobileNavOpen: () => void }) => {
                   <SettingsIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText>
-                  {`${adminData?.name} ${adminData?.surname}`}
+                  aaaa
                 </ListItemText>
-              </MenuItem>
+              </MenuItem> */}
               <Divider />
               <MenuItem onClick={logOutAction} dense>
                 <ListItemIcon>

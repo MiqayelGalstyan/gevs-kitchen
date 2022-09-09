@@ -5,7 +5,7 @@ import { makeStyles } from "@mui/styles";
 import { DatePicker } from "antd";
 import "antd/dist/antd.css";
 import { IDatePickerProps } from "./types";
-import theme from "src/theme";
+import theme from "../../../theme";
 
 const format = "YYYY-MM-DD";
 
@@ -63,7 +63,7 @@ const HpDatePicker = (props: IDatePickerProps) => {
       />
       {errors?.[`${name}`]?.message && (
         <Box ml={2} mt={0.5}>
-          <FormHelperText error>{errors?.[`${name}`]?.message}</FormHelperText>
+          <FormHelperText error>{errors?.[`${name}`]?.message as any}</FormHelperText>
         </Box>
       )}
     </Box>

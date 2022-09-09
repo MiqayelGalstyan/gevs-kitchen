@@ -73,7 +73,7 @@ const HPInput = ({
             placeholder={placeholder}
             type={type || "text"}
             error={!!errors?.[name]?.message}
-            helperText={!disabled && errors?.[name]?.message}
+            helperText={!disabled && errors?.[name]?.message as any}
             fullWidth
             label={label}
             margin={margin}

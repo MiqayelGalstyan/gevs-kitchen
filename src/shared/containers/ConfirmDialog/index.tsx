@@ -6,7 +6,7 @@ import {
   DialogTitle,
   Grow,
 } from "@mui/material";
-import HpLoadingButton from "shared/ui/HPLoadingButton";
+import HpLoadingButton from "@shared/ui/HPLoadingButton";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({

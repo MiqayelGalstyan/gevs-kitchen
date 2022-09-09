@@ -11,6 +11,7 @@ const tableStyles = makeStyles((theme) => ({
     minWidth: 650,
   },
   tableHead: {
+    //@ts-ignore
     backgroundColor: `${theme.palette.primary.main} !important`,
   },
   sortDirectionIcon: {
@@ -39,13 +40,16 @@ const tableStyles = makeStyles((theme) => ({
   },
   bodyCell: {
     fontSize: "14px !important",
+    //@ts-ignore
     color: `${theme.palette.primary.text} !important`,
   },
   bodyCellLayout: {
+    //@ts-ignore
     color: `${theme.palette.primary.text} !important`,
     fontSize: "14px !important",
   },
   paginationToolbar: {
+    //@ts-ignore
     background: theme.palette.primary.main,
     border: "1px solid #ddd",
     borderRadius: "2px",

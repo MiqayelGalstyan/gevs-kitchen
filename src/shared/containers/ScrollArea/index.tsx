@@ -1,7 +1,7 @@
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {makeStyles} from "@mui/styles";
 
-const styles = makeStyles((theme) => ({
+const styles = makeStyles((theme:any) => ({
     root: {
         width: '100%',
 

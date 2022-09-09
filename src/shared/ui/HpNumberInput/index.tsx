@@ -80,9 +80,10 @@ const HpNumberInput = forwardRef(
               customInput={TextField}
               variant="outlined"
               {...(isDecimal ? {} : {})}
-              format={!isDecimal ? onlyNumbers : undefined}
+              format={!isDecimal ? onlyNumbers : undefined as any}
               helperText={
-                !disabled && (customError ? customError : errors[name]?.message)
+                !disabled &&
+                ((customError ? customError : errors[name]?.message) as any)
               }
               error={
                 !disabled && (customError ? !!customError : !!errors?.[name])

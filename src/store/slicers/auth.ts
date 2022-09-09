@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { LSRemoveMultiple } from "src/helpers";
+import { LSRemoveMultiple } from "../../helpers";
 import api from "../../helpers/axios";
 import { EBaseUrl, ELStorage } from "../config/constants";
 import thunkOptions from "../config/thunkOptions";
@@ -10,7 +10,7 @@ const name = "AUTH";
 export const SignIn = createAsyncThunk<ISignInResponse, ISignInRequest>(
   `${name}/SignIn`,
   async (formData) =>
-    (await api.post(`${EBaseUrl}/admin/login`, formData)).data,
+    (await api.post(`${EBaseUrl.API_KEY}/Users/Login`, formData)).data,
   thunkOptions
 );
 
@@ -33,7 +33,7 @@ const AuthSlicer = createSlice({
     builder.addCase(
       SignIn.fulfilled,
       (state, { payload }: { payload: ISignInResponse }) => {
-        localStorage.setItem(ELStorage.accessToken, `Bearer ${payload.access_token}`);
+        localStorage.setItem(ELStorage.accessToken, `Bearer ${payload.accessToken}`);
         state.isAuth = true;
       }
     );

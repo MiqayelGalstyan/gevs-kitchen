@@ -12,7 +12,13 @@ const styles = makeStyles({
   },
 });
 
-const ErrorText = ({ errors, name }: { errors: FieldErrors; name: string }) => {
+const ErrorText = ({
+  errors,
+  name,
+}: {
+  errors: FieldErrors | any;
+  name: string;
+}) => {
   const classes = styles();
 
   return (
@@ -20,7 +26,7 @@ const ErrorText = ({ errors, name }: { errors: FieldErrors; name: string }) => {
       name={name}
       errors={errors}
       render={() => {
-        return <p className={classes.message}>{errors[name].message}</p>;
+        return <p className={classes.message}>{`${errors[name].message}`}</p>;
       }}
     />
   );

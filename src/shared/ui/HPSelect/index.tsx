@@ -6,7 +6,7 @@ import {
   InputLabel,
   MenuItem,
   FormHelperText,
-  MenuProps
+  MenuProps,
 } from "@mui/material";
 import { ISelectProps } from "./types";
 
@@ -70,6 +70,7 @@ const HPSelect = (props: ISelectProps): JSX.Element => {
         const res = [];
         value.forEach((item) => {
           options?.forEach((option) => {
+            //@ts-ignore
             option[keyProp] === item && res.push(option[textProp]);
           });
         });
@@ -117,7 +118,9 @@ const HPSelect = (props: ISelectProps): JSX.Element => {
         )}
       />
       {errors?.[`${name}`]?.message && (
-        <FormHelperText error>{errors?.[`${name}`]?.message}</FormHelperText>
+        <FormHelperText error>
+          {errors?.[`${name}`]?.message as any}
+        </FormHelperText>
       )}
     </FormControl>
   );

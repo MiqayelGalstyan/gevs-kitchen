@@ -2,15 +2,12 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Box, Divider, Drawer, List } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import ScrollArea from "shared/containers/ScrollArea";
+import ScrollArea from "../../../shared/containers/ScrollArea";
 import NavItem from "./NavItem";
 import { useSidebarItems } from "./routesData";
-import StampsLogo from "icons/StampsLogo.svg";
-import StampsBackground from "images/stampsBackground.jpg";
-import usePermissions from "helpers/usePermissions";
-import NestedItems from "src/layouts/AdminLayout/NavBar/NestedItems";
+import NestedItems from "../../../layouts/AdminLayout/NavBar/NestedItems";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     backgroundColor: theme.palette.sidebar.background,
     position: "relative",
@@ -32,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    backgroundImage: `url("${StampsBackground}")`,
     top: 0,
     left: 0,
     width: "100%",
@@ -65,8 +61,7 @@ const NavBar = ({
   onMobileClose?: () => void;
   openMobile: boolean;
 }) => {
-  const { adminPermissions } = usePermissions();
-  const items = useSidebarItems(adminPermissions);
+  const items = useSidebarItems();
 
   const classes = useStyles();
   const location = useLocation();
@@ -100,19 +95,19 @@ const NavBar = ({
         <Box className={classes.gradient}></Box>
         <List>
           <Box ml={1} mt={1}>
-            <img className={classes.logo} src={StampsLogo} alt="logo" />
+            {/* <img className={classes.logo} src={StampsLogo} alt="logo" /> */}
           </Box>
           <Box mt={2} mb={1}>
             <Divider color="grey" />
           </Box>
           <ScrollArea>
             <Box width={190} height="80vh">
-              {items.map((item) => {
-                return item.groupName ? (
+              {items.map((item: any) => {
+                return item?.groupName ? (
                   <NestedItems
-                    key={item.groupName}
-                    routes={item.routes}
-                    groupName={item.groupName}
+                    key={item?.groupName}
+                    routes={item?.routes}
+                    groupName={item?.groupName}
                   />
                 ) : (
                   <NavItem

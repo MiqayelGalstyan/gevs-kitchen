@@ -3,6 +3,7 @@ import { createTheme } from "@mui/material/styles";
 import shadows from "./shadows";
 import typography from "./typography";
 
+//@ts-ignore
 const theme = createTheme({
   palette: {
     header: {
@@ -15,17 +16,20 @@ const theme = createTheme({
       activeItemBackground: 'rgba(167,243,255,0.27)',
     },
     background: {
+      //@ts-ignore
       dark: "#F4F6F8",
       default: common.white,
       paper: common.white,
     },
     primary: {
+      //@ts-ignore
       text: '#696969',
       main: '#3c4858',
       success: "#74ee77",
     },
     secondary: {
       main: "#FA4616",
+      //@ts-ignore
       hover: "#768790",
     },
     success: {
@@ -39,6 +43,7 @@ const theme = createTheme({
       // secondary: colors.blueGrey[600],
     },
   },
+  //@ts-ignore
   shadows,
   typography,
   components: {

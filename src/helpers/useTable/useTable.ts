@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { IThunkOptions } from "store/config/thunkOptions";
-import useQueryParams, { IQueryObject } from "helpers/useQueryParams";
-import useTablePagination from "helpers/useTable/useTablePagination";
-import { IUseTableConfig } from "helpers/useTable/types";
-import { ESortDirection } from "src/shared/ui/Table/enums";
+import { IThunkOptions } from "../../store/config/thunkOptions";
+import useQueryParams, { IQueryObject } from "../../helpers/useQueryParams";
+import useTablePagination from "../../helpers/useTable/useTablePagination";
+import { IUseTableConfig } from "../../helpers/useTable/types";
+import { ESortDirection } from "../../shared/ui/Table/enums";
 
 export enum ESystemQueries {
   page = "page",
@@ -49,7 +49,7 @@ const useTable = <Returned, ThunkArg>(
       }
 
       const { meta, payload }: any = await dispatch(
-        config.action(actionPayload)
+        config.action(actionPayload) as any
       );
 
       if (meta.requestStatus !== "fulfilled") {
@@ -113,8 +113,8 @@ const useTable = <Returned, ThunkArg>(
         systemQueries.sort_type === ESortDirection.ascending
           ? ESortDirection.descending
           : systemQueries.sort_type === ESortDirection.descending
-          ? ""
-          : ESortDirection.ascending,
+            ? ""
+            : ESortDirection.ascending,
     };
 
     const { meta }: any = await fetchData(extendedQueries);
@@ -145,9 +145,9 @@ const useTable = <Returned, ThunkArg>(
 
 export type IFetchDataReturn = Promise<
   | {
-      meta: any;
-      payload: any;
-    }
+    meta: any;
+    payload: any;
+  }
   | undefined
 >;
 export default useTable;

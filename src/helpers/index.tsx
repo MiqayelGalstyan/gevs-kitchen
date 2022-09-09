@@ -1,10 +1,10 @@
 import moment from "moment";
 
-export const getIdsFromOptions = (value) => {
+export const getIdsFromOptions = (value: any) => {
   return Array.isArray(value) ? value.map((item) => item.id) : [value.id];
 };
 
-export const getOptionsByIds = (ids, options, isSingle) => {
+export const getOptionsByIds = (ids: any, options: any[], isSingle: any) => {
   return Array.isArray(ids)
     ? options.length &&
         ids.map((id) => options.find((option) => option.id === parseInt(id)))

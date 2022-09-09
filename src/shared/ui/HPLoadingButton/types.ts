@@ -1,14 +1,14 @@
-import { ElementType, MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 
 export type IHPLoadingButton = {
-  color?: "primary" | "secondary";
-  disabled?: boolean;
-  fullWidth?: boolean;
-  isLoading: boolean;
+  color?: "primary" | "secondary" | any;
+  disabled?: boolean | any;
+  fullWidth?: boolean | any;
+  isLoading: boolean | any;
   children: JSX.Element | string | any;
-  type?: string;
-  size?: "medium" | "large" | "small";
-  variant?: "contained" | "outlined" | "text";
-  className?: string;
-  onClick?: MouseEventHandler<HTMLAnchorElement> | undefined;
+  type?: string | any;
+  size?: "medium" | "large" | "small" | any;
+  variant?: "contained" | "outlined" | "text" | any;
+  className?: string | any;
+  onClick?: MouseEventHandler<HTMLAnchorElement> | any;
 };

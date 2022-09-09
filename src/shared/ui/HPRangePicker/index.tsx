@@ -45,7 +45,7 @@ const HPRangePicker = (props: IRangePickerProps) => {
             value={[
               field.value?.startDate ? moment(field.value.startDate) : "",
               field.value?.endDate ? moment(field.value.endDate) : "",
-            ]}
+            ] as any}
             placeholder={["Start", "End"]}
             onChange={(value) => {
               const parsedValue = {
@@ -57,7 +57,7 @@ const HPRangePicker = (props: IRangePickerProps) => {
             }}
             size="large"
             allowEmpty={[false, false]}
-            ranges={ranges}
+            ranges={ranges as any}
           />
         )}
       />

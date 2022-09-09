@@ -1,18 +1,17 @@
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { SignIn } from "src/store/slicers/auth";
-import { ERequestStatus } from "src/store/config/constants";
+import { SignIn } from "../../store/slicers/auth";
+import { ERequestStatus } from "../../store/config/constants";
 import { useForm, FormProvider } from "react-hook-form";
 import { Box, Grid } from "@mui/material";
-import HPInput from "src/shared/ui/HPInput";
-import HPLoadingButton from "src/shared/ui/HPLoadingButton";
-import { emailRegex } from "src/helpers/validators";
+import HPInput from "../../shared/ui/HPInput";
+import HPLoadingButton from "../../shared/ui/HPLoadingButton";
+import { emailRegex } from "../../helpers/validators";
 import useStyles from "./style";
-import StampsLogo from "icons/StampsLogo.svg";
-import { ISignInRequest } from "src/store/models/auth.interface";
-import ScrollArea from "shared/containers/ScrollArea";
-import { AppDispatch } from "src/store";
+import { ISignInRequest } from "../../store/models/auth.interface";
+import ScrollArea from "../../shared/containers/ScrollArea";
+import { AppDispatch } from "../../store";
 
 const Login = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +36,7 @@ const Login = (): JSX.Element => {
         return;
       }
       setIsLoading(false);
-      navigate("/admin");
+      navigate("/admin/main");
     } catch (e) {
       setIsLoading(false);
     }
@@ -49,16 +48,7 @@ const Login = (): JSX.Element => {
         <div className={classes.root}>
           <Grid container className={classes.container}>
             <Grid item md={6} xs={12} className={classes.leftColumn}>
-              <Box className={classes.gradient}>
-                <Box ml={3} mt={4.1}>
-                  <img
-                    className={classes.logo}
-                    style={{ height: 40 }}
-                    src={StampsLogo}
-                    alt={"Logo"}
-                  />
-                </Box>
-              </Box>
+              <Box className={classes.gradient}></Box>
             </Grid>
             <Grid item md={6} xs={12} className={classes.rightColumn}>
               <FormProvider {...methods}>

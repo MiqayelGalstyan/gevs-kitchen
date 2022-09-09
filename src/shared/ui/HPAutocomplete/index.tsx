@@ -94,7 +94,7 @@ const HPAutocomplete = (props: IHPAutocompleteProps) => {
                 label={label}
                 error={!!errors?.[name]?.message}
                 color="primary"
-                helperText={errors?.[name]?.message}
+                helperText={errors?.[name]?.message as any}
                 variant="outlined"
                 disabled={disabled}
               />

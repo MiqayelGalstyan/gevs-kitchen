@@ -1,11 +1,7 @@
 import { Fragment, useMemo } from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import {
-  Box,
-  TextareaAutosize,
-  Typography,
-} from "@mui/material";
-import {makeStyles} from '@mui/styles';
+import { Box, TextareaAutosize, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 
 interface IHPTextAreaProps {
   name: string;
@@ -28,16 +24,20 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     marginLeft: 14,
     marginRight: 14,
+    //@ts-ignore
     color: theme.palette.secondary.main,
   },
   muiError: {
+    //@ts-ignore
     borderColor: theme.palette.secondary.main,
     "&:focus-visible": {
+      //@ts-ignore
       border: `2px solid ${theme.palette.secondary.main}`,
       outline: "none",
     },
   },
   muiLabelError: {
+    //@ts-ignore
     color: theme.palette.secondary.main,
   },
 }));
@@ -71,7 +71,7 @@ const HPTextArea = ({
     () =>
       errorMessage || customErrorMessage ? (
         <Typography color="secondary" className={classes.errorMessage}>
-          {customErrorMessage ? customErrorMessage : errorMessage}
+          {customErrorMessage ? customErrorMessage : (errorMessage as any)}
         </Typography>
       ) : null,
     [customErrorMessage, errorMessage]

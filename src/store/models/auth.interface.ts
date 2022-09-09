@@ -1,5 +1,5 @@
 export type ISignInResponse = {
-    access_token: string;
+  accessToken: string;
   };
   
   export type ISignInRequest = {

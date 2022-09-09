@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import StampsBackground from "images/stampsBackground.jpg";
+import LogoAdmin from "../../assets/Logo.svg";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -8,24 +8,29 @@ const useStyles = makeStyles((theme: any) => ({
   container: {
     height: "100vh",
   },
+  logoArea: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   leftColumn: {
     position: 'relative',
     height: "100%",
     width: "100%",
-    backgroundImage: `url(${StampsBackground})`,
+    backgroundImage: `url(${LogoAdmin})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
+    backgroundSize: "contain",
   },
   logo: {
-    width: 170,
-    height: 40
+    width: 400,
+    height: 'auto'
   },
   gradient: {
     position: 'absolute',
     width: "100%",
     height: "100%",
-    background: 'linear-gradient(180deg, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 20%, rgb(19 19 19 / 15%) 100%)',
+    background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgb(19 19 19 / 65%) 0%)',
   },
   rightColumn: {
     display: "flex",

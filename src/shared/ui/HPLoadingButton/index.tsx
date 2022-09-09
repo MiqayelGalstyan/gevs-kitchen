@@ -1,8 +1,8 @@
-import { Button ,LinearProgress } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { Button, LinearProgress } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { IHPLoadingButton } from "./types";
 
-const useStyles = makeStyles((Theme) => ({
+const useStyles = makeStyles((Theme: any): any => ({
   buttonWrapper: {
     position: "relative",
     display: "block",
@@ -39,12 +39,12 @@ const HPLoadingButton = (props: IHPLoadingButton) => {
     className,
     onClick,
   } = props;
-  const classes = useStyles({ fullWidth });
+  const classes = useStyles({ fullWidth }) as any;
 
   return (
     <Button
       color={color}
-      className={`${classes.buttonWrapper} ${className}`}
+      className={`${classes.buttonWrapper} ${className}` as any}
       disabled={isLoading || disabled}
       fullWidth={fullWidth}
       type={type}
@@ -53,7 +53,9 @@ const HPLoadingButton = (props: IHPLoadingButton) => {
       onClick={onClick}
     >
       {children}
-      {isLoading && <LinearProgress className={classes.loader} color={color} />}
+      {isLoading && (
+        <LinearProgress className={classes.loader as any} color={color} />
+      )}
     </Button>
   );
 };

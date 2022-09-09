@@ -1,18 +1,22 @@
 import { Action, combineReducers, configureStore } from "@reduxjs/toolkit";
 import errorHandling from "./middlewares/errorHandling";
 import { IReducedInitialState } from "./models/common.interface";
-import auth from './slicers/auth'
+import auth from './slicers/auth';
+import categories from './slicers/categories';
+import products from './slicers/products';
 
-
-const combinedReducers = combineReducers({
-    auth,
-});
 
 const initialState: IReducedInitialState = {
     auth: {
         isAuth: false,
     },
 };
+
+const combinedReducers = combineReducers({
+    auth,
+    categories,
+    products,
+});
 
 const rootReducer = (state: any, action: Action) => {
     if (action.type === "AUTH/signOut") {

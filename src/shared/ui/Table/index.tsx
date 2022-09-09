@@ -14,13 +14,13 @@ import {
   TableSortLabel,
   IconButton,
 } from "@mui/material";
-import CircularLoader from "shared/containers/CircularLoader";
-import ActionsDropdown from "shared/ui/Table/components/actionsDropdown";
-import DataMissingChip from "shared/ui/DataMissingChip";
+import CircularLoader from "../../../shared/containers/CircularLoader";
+import ActionsDropdown from "../../../shared/ui/Table/components/actionsDropdown";
+import DataMissingChip from "../../../shared/ui/DataMissingChip";
 import tableStyles from "./style";
-import ScrollArea from "shared/containers/ScrollArea";
+import ScrollArea from "../../../shared/containers/ScrollArea";
 import { ESortDirection } from "./enums";
-import useQueryParams from "src/helpers/useQueryParams";
+import useQueryParams from "../../../helpers/useQueryParams";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
@@ -268,7 +268,7 @@ const CustomTable = ({
                   <TablePagination
                     classes={{
                       toolbar: classes.paginationToolbar,
-                      select: classes.paginationSelect,
+                      // select: classes.paginationSelect,
                       actions: classes.paginationActions,
                       displayedRows: classes.PaginationDisplayedRows,
                     }}
@@ -313,7 +313,7 @@ const CustomTable = ({
               <TablePagination
                 classes={{
                   toolbar: classes.paginationToolbar,
-                  select: classes.paginationSelect,
+                  // select: classes.paginationSelect,
                   actions: classes.paginationActions,
                   displayedRows: classes.PaginationDisplayedRows,
                 }}
