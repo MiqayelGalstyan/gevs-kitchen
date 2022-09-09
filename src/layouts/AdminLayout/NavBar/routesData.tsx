@@ -6,7 +6,7 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 export const useSidebarItems = () => {
   return [
     {
-      href: "/admin/main",
+      href: "/admin",
       icon: DashboardIcon,
       title: "Main",
     },

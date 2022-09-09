@@ -28,7 +28,7 @@ const getAllRoutes = () => {
     ...(!!localStorage.getItem(ELStorage.accessToken)
       ? [
           {
-            path: "/admin/main",
+            path: "/admin",
             element: (
               <AdminLayout>
                 <AdminMain />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useQueryParams, { IQueryObject } from "@helpers/useQueryParams";
+import useQueryParams, { IQueryObject } from "../../helpers/useQueryParams";
 
 interface IUseTablePaginationProps {
   defaultQueries: IQueryObject;

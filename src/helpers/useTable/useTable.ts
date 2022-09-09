@@ -62,7 +62,7 @@ const useTable = <Returned, ThunkArg>(
         setPagination({
           ...pagination,
           page: Number(payload.meta.currentPage),
-          rowsPerPage: Number(payload.meta.itemsPerPage),
+          rowsPerPage: Number(payload.meta.pageSize),
           totalCount: Number(payload.meta.totalItems),
         });
       }

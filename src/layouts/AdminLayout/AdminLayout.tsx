@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Fragment, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import NavBar from "./NavBar";
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme: any) => ({
   content: {
     flex: "1 1 auto",
     height: "auto",
+    paddingRight: 15,
+    paddingLeft: 15,
+    marginTop: 10,
   },
   breadcrumbsList: {
     paddingLeft: "30px",
@@ -67,7 +71,6 @@ const AdminLayout = ({ children }: IAdminLayoutProps) => {
   const location = useLocation();
   const [scrollAreaRef, setScrollAreaRef] = useState<HTMLElement | null>(null);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const navigate = useNavigate();
 
   const getContainerRef = (ref: HTMLElement) => {
     setScrollAreaRef(ref);
@@ -92,9 +95,7 @@ const AdminLayout = ({ children }: IAdminLayoutProps) => {
           <div className={classes.contentContainer}>
             <ScrollArea getRef={getContainerRef}>
               <>
-                <Box className={classes.content}>
-                  {children}
-                </Box>
+                <Box className={classes.content}>{children}</Box>
               </>
             </ScrollArea>
           </div>

@@ -36,7 +36,7 @@ const Login = (): JSX.Element => {
         return;
       }
       setIsLoading(false);
-      navigate("/admin/main");
+      navigate("/admin");
     } catch (e) {
       setIsLoading(false);
     }

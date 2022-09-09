@@ -221,10 +221,10 @@ const CustomTable = ({
               />
             </Box>
           </TableCell>
-          {...newRow}
+          {newRow}
         </Fragment>
       ) : (
-        newRow
+        <Fragment>{newRow}</Fragment>
       );
     },
     [classes.bodyCell, columns, dropdownActions, selected]

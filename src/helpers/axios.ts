@@ -1,6 +1,4 @@
 import axios, { AxiosRequestConfig } from "axios";
-// import store from "../store";
-// import { signOut } from "../store/slicers/auth";
 
 import { ELStorage } from "../store/config/constants";
 
@@ -44,12 +42,12 @@ api.interceptors.response.use(
         new Promise((resolve, reject) => {
             //@TODO remove condition and handle 401 cases when backand will be ready
             if (err.response.status === 401) {
-                // store.dispatch(signOut());
+                localStorage.removeItem(ELStorage.accessToken);
                 return reject(err);
             }
 
             if (err.response.status === 403) {
-                // store.dispatch(signOut());
+                localStorage.removeItem(ELStorage.accessToken);
             }
             return reject(err);
         })

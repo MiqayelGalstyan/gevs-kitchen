@@ -6,6 +6,7 @@ import ScrollArea from "../../../shared/containers/ScrollArea";
 import NavItem from "./NavItem";
 import { useSidebarItems } from "./routesData";
 import NestedItems from "../../../layouts/AdminLayout/NavBar/NestedItems";
+import LogoAdmin from "../../../assets/Logo.svg";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -95,7 +96,7 @@ const NavBar = ({
         <Box className={classes.gradient}></Box>
         <List>
           <Box ml={1} mt={1}>
-            {/* <img className={classes.logo} src={StampsLogo} alt="logo" /> */}
+            <img className={classes.logo} src={LogoAdmin} alt="logo" />
           </Box>
           <Box mt={2} mb={1}>
             <Divider color="grey" />

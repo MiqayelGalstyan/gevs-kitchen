@@ -20,8 +20,11 @@ export type IReducedInitialState = {
   };
   
   export type IGridBaseResponse = {
-    meta: IGridBaseResponseMeta;
-    links: IGridBaseResponseLinks;
+    currentPage: number;
+    itemCount: number;
+    itemsPerPage: number;
+    totalItems: number;
+    totalPages: number;
   };
   
   export type IGridBaseRequest = {
