@@ -1,9 +1,21 @@
+import { Box, Paper, Typography } from "@mui/material";
 import React from "react";
 
 const AdminMain = (): JSX.Element => {
   return (
     <React.Fragment>
-      <div>Welcome,Admin</div>
+      <Box
+        p={2}
+        component={Paper}
+        marginTop={3}
+        marginBottom={2}
+        minHeight={350}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Typography variant="h2">Welcome, Admin</Typography>
+      </Box>
     </React.Fragment>
   );
 };

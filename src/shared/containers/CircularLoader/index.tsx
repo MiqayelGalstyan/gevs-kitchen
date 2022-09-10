@@ -28,7 +28,7 @@ const styles = makeStyles({
     }
 });
 
-const CircularLoader = (props) => {
+const CircularLoader = (props: { children: any; loading: any; hideLoader?: false | undefined; fixed?: false | undefined; maxContent?: true | undefined; }) => {
     const {
         children,
         loading,

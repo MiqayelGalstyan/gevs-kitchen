@@ -12,32 +12,32 @@ interface IActionErrors extends Action {
 
 const errorHandling =
   () =>
-  (next: (arg: IActionErrors) => void) =>
-  (action: IActionErrors): void => {
-    if (isRejected(action)) {
-      if(action.error.status === 500) {
-         toast.error('Something went wrong');
-        return
-      }
+    (next: (arg: IActionErrors) => void) =>
+      (action: IActionErrors): void => {
+        if (isRejected(action)) {
+          if (action.error.status === 500) {
+            toast.error('Something went wrong');
+            return;
+          }
 
-      if(action.error.status === 401) {
-        toast.error('Not authorized please log-in');
-        return
-      }
+          if (action.error.status === 401) {
+            toast.error('Not authorized please log-in');
+            return;
+          }
 
-      if(action?.error?.data) {
-        const errors = action.error.data as any;
-        if(Object.keys(errors).length) {
-          for(let error in errors) {
-            errors[error]?.isNotEmpty
-                ? toast.error(errors[error].isNotEmpty)
-                : toast.error(errors[error]);
+          if (action?.error?.data) {
+            const errors = action.error.data as any;
+            if (Object.keys(errors).length) {
+              for (let error in errors) {
+                errors[error]?.isNotEmpty
+                  ? toast.error(errors[error].isNotEmpty)
+                  : toast.error(errors[error]);
+              }
+            }
           }
         }
-      }
-    }
 
-    return next(action);
-  };
+        return next(action);
+      };
 
 export default errorHandling;

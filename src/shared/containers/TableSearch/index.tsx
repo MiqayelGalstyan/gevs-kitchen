@@ -2,10 +2,10 @@ import { Fragment, useCallback } from "react";
 import { useForm, FormProvider, useWatch } from "react-hook-form";
 import { Box, Button, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import HPInput from "@shared/ui/HPInput";
-import useQueryParams, { IQueryObject } from "@helpers/useQueryParams";
-import { debounce } from "@helpers";
-import { IFetchDataReturn } from "@helpers/useTable/useTable";
+import HPInput from "../../../shared/ui/HPInput";
+import useQueryParams, { IQueryObject } from "../../../helpers/useQueryParams";
+import { debounce } from "../../../helpers";
+import { IFetchDataReturn } from "../../../helpers/useTable/useTable";
 
 const TableSearch = ({
   name,

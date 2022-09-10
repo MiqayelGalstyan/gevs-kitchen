@@ -4,6 +4,7 @@ import { IReducedInitialState } from "./models/common.interface";
 import auth from './slicers/auth';
 import categories from './slicers/categories';
 import products from './slicers/products';
+import about from './slicers/about';
 
 
 const initialState: IReducedInitialState = {
@@ -16,6 +17,7 @@ const combinedReducers = combineReducers({
     auth,
     categories,
     products,
+    about,
 });
 
 const rootReducer = (state: any, action: Action) => {

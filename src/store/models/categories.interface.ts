@@ -9,5 +9,17 @@ export interface ICategoriesGridResponse extends IGridBaseResponse {
 }
 
 export interface ICategory {
-    created_at: string;
+    id: number;
+    name: string;
+    creationDate: string;
+}
+
+export interface IAddEditCategory {
+    id: number;
+    name: string;
+}
+
+export interface IGetCategoryByIdResponse {
+    id: number;
+    name: string;
 }

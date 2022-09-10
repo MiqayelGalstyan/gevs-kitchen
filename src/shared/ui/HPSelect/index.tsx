@@ -6,7 +6,6 @@ import {
   InputLabel,
   MenuItem,
   FormHelperText,
-  MenuProps,
 } from "@mui/material";
 import { ISelectProps } from "./types";
 
@@ -65,10 +64,10 @@ const HPSelect = (props: ISelectProps): JSX.Element => {
   }, [ellipsis, keyProp, options, textProp, valueProp]);
 
   const renderValue = useCallback(
-    (value) => {
+    (value: any) => {
       if (typeof value === "object") {
-        const res = [];
-        value.forEach((item) => {
+        let res: any = [];
+        value.forEach((item: any) => {
           options?.forEach((option) => {
             //@ts-ignore
             option[keyProp] === item && res.push(option[textProp]);

@@ -6,6 +6,9 @@ import { Navigate } from "react-router";
 import AdminMain from "../views/Admin/pages/Main";
 import AdminCategories from "../views/Admin/pages/Categories";
 import AdminProducts from "../views/Admin/pages/Products";
+import AddEditCategory from "../views/Admin/pages/Categories/pages/AddEditCategory";
+import AddEditProduct from "../views/Admin/pages/Products/pages/AddEditProduct";
+import AdminAbout from "../views/Admin/pages/About";
 
 const mainRoutes = [
   {
@@ -46,6 +49,24 @@ const getAllRoutes = () => {
             label: "Categories",
           },
           {
+            path: "/admin/add-category",
+            element: (
+              <AdminLayout>
+                <AddEditCategory />
+              </AdminLayout>
+            ),
+            label: "Add Category",
+          },
+          {
+            path: "/admin/edit-category/:id",
+            element: (
+              <AdminLayout>
+                <AddEditCategory />
+              </AdminLayout>
+            ),
+            label: "Edit Category",
+          },
+          {
             path: "/admin/products",
             element: (
               <AdminLayout>
@@ -53,6 +74,33 @@ const getAllRoutes = () => {
               </AdminLayout>
             ),
             label: "products",
+          },
+          {
+            path: "/admin/add-product",
+            element: (
+              <AdminLayout>
+                <AddEditProduct />
+              </AdminLayout>
+            ),
+            label: "Add Product",
+          },
+          {
+            path: "/admin/edit-product/:id",
+            element: (
+              <AdminLayout>
+                <AddEditProduct />
+              </AdminLayout>
+            ),
+            label: "Edit Product",
+          },
+          {
+            path: "/admin/about",
+            element: (
+              <AdminLayout>
+                <AdminAbout />
+              </AdminLayout>
+            ),
+            label: "About",
           },
         ]
       : []),

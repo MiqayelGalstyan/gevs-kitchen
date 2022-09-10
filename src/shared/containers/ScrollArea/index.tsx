@@ -30,7 +30,7 @@ const styles = makeStyles((theme:any) => ({
             }
         },
         '& .ps__thumb-y': {
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: 'transparent !important',
         }
     }
 }))

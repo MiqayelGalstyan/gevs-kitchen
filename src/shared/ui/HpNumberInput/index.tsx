@@ -1,7 +1,7 @@
 import { ChangeEvent, forwardRef, Fragment } from "react";
 import NumberFormat from "react-number-format";
 import { Controller, useFormContext } from "react-hook-form";
-import { TextField, Box } from "@mui/material";
+import { TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const onlyNumbers = (val: number) => val;
@@ -72,6 +72,7 @@ const HpNumberInput = forwardRef(
                 ...(endAdornment ? { endAdornment } : {}),
               }}
               className={classes.input}
+              //@ts-ignore
               {...(isAllowed ? { isAllowed: isAllowed } : {})}
               allowLeadingZeros={allowLeadingZeros}
               inputRef={ref}

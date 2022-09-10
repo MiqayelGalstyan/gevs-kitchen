@@ -5,20 +5,13 @@ import { ICategory } from "../../../../../store/models/categories.interface";
 const defaultColumns = [
   {
     field: "name",
-    title: "Category name",
+    title: "Category Name",
   },
   {
-    field: "created_at",
-    title: "Created At",
+    field: "creationDate",
+    title: "Creation Date",
     layout(row: ICategory): string | JSX.Element {
-      return row.created_at ? toLocalDate(row.created_at) : <DataMissingChip />;
-    },
-  },
-  {
-    field: "updated_at",
-    title: "Updated At",
-    layout(row: ICategory): string | JSX.Element {
-      return row.created_at ? toLocalDate(row.created_at) : <DataMissingChip />;
+      return row.creationDate ? toLocalDate(row.creationDate) : <DataMissingChip />;
     },
   },
 ];

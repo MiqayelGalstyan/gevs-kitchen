@@ -43,10 +43,12 @@ api.interceptors.response.use(
             //@TODO remove condition and handle 401 cases when backand will be ready
             if (err.response.status === 401) {
                 localStorage.removeItem(ELStorage.accessToken);
+                window.location.href = '/login';
                 return reject(err);
             }
 
             if (err.response.status === 403) {
+                window.location.href = '/login';
                 localStorage.removeItem(ELStorage.accessToken);
             }
             return reject(err);

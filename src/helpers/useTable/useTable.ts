@@ -58,12 +58,13 @@ const useTable = <Returned, ThunkArg>(
       }
 
       setLoading(false);
-      if (payload.meta) {
+      if (payload) {
         setPagination({
           ...pagination,
-          page: Number(payload.meta.currentPage),
-          rowsPerPage: Number(payload.meta.pageSize),
-          totalCount: Number(payload.meta.totalItems),
+          page: Number(payload.currentPage),
+          rowsPerPage: Number(payload.pageSize),
+          //@ts-ignore
+          totalCount: Number(payload.rowCount),
         });
       }
       return { meta, payload };

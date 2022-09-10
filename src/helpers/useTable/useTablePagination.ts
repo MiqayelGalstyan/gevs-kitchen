@@ -10,7 +10,7 @@ interface IPagination {
   onChangePage: (_: any, value: number) => void;
   page?: number | string;
   rowsPerPage?: number | string;
-  totalCount?: number | string;
+  rowCount?: number | string;
 }
 
 const useTablePagination = ({

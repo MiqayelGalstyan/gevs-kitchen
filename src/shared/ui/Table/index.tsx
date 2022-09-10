@@ -130,7 +130,7 @@ const CustomTable = ({
     return (
       actions?.length && (
         <div className={classes.actions}>
-          {actions?.map((action) => {
+          {actions?.map((action: any) => {
             return action ? (
               <div key={nanoid(10)}>{action.layout(rows)}</div>
             ) : (
@@ -145,7 +145,7 @@ const CustomTable = ({
   const generateColumns = useCallback(() => {
     const queries = getQueries();
 
-    const res = columns?.map((column) => (
+    const res = columns?.map((column: any) => (
       <Fragment key={nanoid(10)}>
         <TableCell>
           <Box
@@ -189,8 +189,8 @@ const CustomTable = ({
   }, [classes.headCell, columns, dropdownActions?.length]);
 
   const generateSingleRow = useCallback(
-    (row, rowIndex) => {
-      const newRow = columns.map((column) => {
+    (row: any, rowIndex: number) => {
+      const newRow = columns.map((column: any) => {
         if (column?.layout) {
           return (
             <TableCell
@@ -255,7 +255,9 @@ const CustomTable = ({
       )}
       <CircularLoader
         loading={isLoading}
+        //@ts-ignore
         fixed={fixedLoader}
+        //@ts-ignore
         maxContent={false}
       >
         <div className={classes.container}>

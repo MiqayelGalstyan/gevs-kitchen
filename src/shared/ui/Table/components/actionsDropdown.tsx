@@ -43,7 +43,7 @@ function  ActionsDropdown<Row> ({list, row, rowIndex}: IActionsDropdownProps<Row
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleOpen = useCallback(
-        (event) => {
+        (event:any) => {
             setAnchorEl(event.currentTarget);
         },
         [setAnchorEl]

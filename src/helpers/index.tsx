@@ -13,7 +13,7 @@ export const getOptionsByIds = (ids: any, options: any[], isSingle: any) => {
     : [options.find((option) => option.id === parseInt(ids))];
 };
 
-export function handleKeyPress(e) {
+export function handleKeyPress(e: { key: any; target: { value: string | any[]; }; preventDefault: () => void; }) {
   const characterCode = e.key;
   if (characterCode === "Backspace") {
     return;
@@ -31,7 +31,7 @@ export function handleKeyPress(e) {
   }
 }
 
-export const handleDownload = (url, name = "", extension = ".xlsx") => {
+export const handleDownload = (url: string, name = "", extension = ".xlsx") => {
   const link = document.createElement("a");
   link.href = url;
   link.setAttribute(
@@ -44,7 +44,7 @@ export const handleDownload = (url, name = "", extension = ".xlsx") => {
   link?.parentNode?.removeChild(link);
 };
 
-export const latinAlphabeticalHandler = (event) => {
+export const latinAlphabeticalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
   const regex = /[A-Za-z!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -53,7 +53,7 @@ export const latinAlphabeticalHandler = (event) => {
   }
 };
 
-export const internationalAlphabeticalsAndNumbersHandler = (event) => {
+export const internationalAlphabeticalsAndNumbersHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
   const regex = /[A-Za-zА-Яа-я0-9!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -65,19 +65,19 @@ export const internationalAlphabeticalsAndNumbersHandler = (event) => {
 export const amountFormatter = (value: string): string =>
   value?.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 
-export const LSSetMultiple = (data) => {
-  data.forEach((item) => {
+export const LSSetMultiple = (data: any[]) => {
+  data.forEach((item: string[]) => {
     localStorage.setItem(item[0], item[1]);
   });
 };
 
-export const LSRemoveMultiple = (data) => {
-  data.forEach((item) => {
+export const LSRemoveMultiple = (data: any[]) => {
+  data.forEach((item: string) => {
     localStorage.removeItem(item);
   });
 };
 
-export const latinAlphabeticalAndNumericalHandler = (event) => {
+export const latinAlphabeticalAndNumericalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
   const regex = /[A-Za-z0-9!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -86,7 +86,7 @@ export const latinAlphabeticalAndNumericalHandler = (event) => {
   }
 };
 
-export const lowerCaseLatinAlphabeticalHandler = (event) => {
+export const lowerCaseLatinAlphabeticalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
   const regex = /[a-z0-9!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -95,7 +95,7 @@ export const lowerCaseLatinAlphabeticalHandler = (event) => {
   }
 };
 
-export const onlyAlphabeticalHandler = (event) => {
+export const onlyAlphabeticalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
   const regex = /[A-Za-zԱ-Ֆա-ֆА-Яа-я}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -104,7 +104,7 @@ export const onlyAlphabeticalHandler = (event) => {
   }
 };
 
-export const onlyNumericalPasteHandler = (event) => {
+export const onlyNumericalPasteHandler = (event: { clipboardData: { getData: (arg0: string) => any; }; preventDefault: () => void; }) => {
   const value = event.clipboardData.getData("Text");
   if (!Number.isInteger(parseInt(value))) {
     event.preventDefault();
@@ -112,7 +112,7 @@ export const onlyNumericalPasteHandler = (event) => {
   }
 };
 
-export const onlyNumericalHandler = (event, allowFloat) => {
+export const onlyNumericalHandler = (event: { charCode: number; which: number; target: { value: string | string[]; }; preventDefault: () => void; }, allowFloat: any) => {
   const regex = /^[0-9]*$/g;
   const key = String.fromCharCode(
     !event.charCode ? event.which : event.charCode
@@ -132,7 +132,7 @@ export const onlyNumericalHandler = (event, allowFloat) => {
 };
 
 //'42019703' is a Amazon prefix,which should be deleted at orders "check-in"/"registration" process
-export const removeAmazonPrefix = (value) => {
+export const removeAmazonPrefix = (value: string) => {
   const amazonPrefix = "42019703";
   if (value.trim() === amazonPrefix) return amazonPrefix;
   const regexp = new RegExp("^42019703");
@@ -156,8 +156,8 @@ export const toLocalDate = (utcData: string, returnString: boolean = false) => {
   );
 };
 
-export const debounce = (func, delay) => {
-  let timer;
+export const debounce = (func: { (nextValue: string): void; apply?: any; }, delay: number | undefined) => {
+  let timer: string | number | NodeJS.Timeout | undefined;
   return function () {
     let self = this;
     let args = arguments;
@@ -176,11 +176,11 @@ export const requiredWithTrim = (requiredValue: boolean = true) => ({
     message: "This field is required",
   },
 });
-export const disabledDateToYesterday = (current) => {
+export const disabledDateToYesterday = (current: any) => {
   return current && current < moment().subtract(1, "days");
 };
 
-export const dataUrlToFile = async (dataUrl, fileName, format = "png") => {
+export const dataUrlToFile = async (dataUrl: RequestInfo | URL, fileName: string, format = "png") => {
   const res = await fetch(dataUrl);
   const blob = await res.blob();
   return new File([blob], fileName, { type: `image/${format}` });

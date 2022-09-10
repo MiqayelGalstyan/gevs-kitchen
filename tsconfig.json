@@ -9,7 +9,7 @@
     "strictNullChecks": false,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "sourceMap": true,
     "resolveJsonModule": true,
