@@ -262,6 +262,11 @@ const AddEditProduct = (): JSX.Element => {
             rules={{
               ...requiredFields,
             }}
+            InputProps={{
+              inputProps: {
+                maxLength: 200,
+              },
+            }}
           />
           <Box fontSize="11px" color="#768192">
             Product name
@@ -276,6 +281,11 @@ const AddEditProduct = (): JSX.Element => {
             onKeyPress={latinAlphabeticalAndNumericalHandler}
             rules={{
               ...requiredFields,
+            }}
+            InputProps={{
+              inputProps: {
+                maxLength: 1000,
+              },
             }}
           />
           <Box fontSize="11px" color="#768192">

@@ -14,16 +14,24 @@ import Editor from "../../../../shared/ui/Editor";
 import HPLoadingButton from "../../../../shared/ui/HPLoadingButton";
 import toast from "react-hot-toast";
 
+const requiredFields = {
+  required: {
+    value: true,
+    message: "Required field",
+  },
+};
+
 const AdminAbout = (): JSX.Element => {
   const dispatch = useDispatch<AppDispatch>();
   const [loading, setLoading] = useState<boolean>(false);
   const methods = useForm({
+    mode: "all",
     defaultValues: {
       text: "",
     },
   });
 
-  const { reset, handleSubmit } = methods;
+  const { reset, handleSubmit, clearErrors } = methods;
 
   const fetchInitial = useCallback(async () => {
     setLoading(true);
@@ -40,7 +48,7 @@ const AdminAbout = (): JSX.Element => {
     fetchInitial();
   }, [fetchInitial]);
 
-  const onSubmit = async (formData) => {
+  const onSubmit = async (formData: any) => {
     setLoading(true);
     const { meta } = await dispatch(changeAboutText({ text: formData.text }));
     if (meta.requestStatus !== ERequestStatus.FULFILLED) {
@@ -74,7 +82,17 @@ const AdminAbout = (): JSX.Element => {
           <Typography variant="h3" marginBottom={5}>
             Update About Page
           </Typography>
-          <Editor name="text" />
+          <Editor
+            name="text"
+            rules={{
+              ...requiredFields,
+              validate: (value: string) => {
+                return value && value.length > 2000
+                  ? "Maximum characters are 2000"
+                  : clearErrors(["text"]);
+              },
+            }}
+          />
           <Box marginTop={3}>
             <HPLoadingButton
               isLoading={loading}

@@ -87,6 +87,11 @@ const AddEditCategory = (): JSX.Element => {
           <HPInput
             label="Category Name"
             name="name"
+            InputProps={{
+              inputProps: {
+                maxLength: 250,
+              },
+            }}
             onKeyPress={latinAlphabeticalAndNumericalHandler}
             rules={{
               ...requiredFields,

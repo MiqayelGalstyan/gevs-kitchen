@@ -21,6 +21,7 @@ import toast from "react-hot-toast";
 import Filters from "./components/Filters";
 import { useStyles } from "./styles";
 import DataMissingChip from "../../../../shared/ui/DataMissingChip";
+import { toLocalDate } from "../../../../helpers";
 
 interface IConfirmDialogDefaultValues {
   open: boolean;
@@ -86,6 +87,13 @@ const Products = (): JSX.Element => {
           ) : (
             <DataMissingChip />
           ),
+      },
+      {
+        field: "creationDate",
+        title: "Creation Date",
+        layout(row: IProduct): string | JSX.Element {
+          return row.creationDate ? toLocalDate(row.creationDate) : <DataMissingChip />;
+        },
       },
     ];
   }, []);

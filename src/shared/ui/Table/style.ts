@@ -67,6 +67,7 @@ const tableStyles = makeStyles((theme) => ({
   },
   container: {
     position: "relative",
+    marginBottom: 10,
   },
   actions: {
     padding: "16px",

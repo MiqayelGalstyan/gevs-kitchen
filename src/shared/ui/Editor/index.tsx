@@ -8,6 +8,7 @@ import {
 import ReactQuill from "react-quill";
 import { EditorToolbar, formats, modules } from "./Toolbar";
 import "react-quill/dist/quill.snow.css";
+import { Box, FormHelperText } from "@mui/material";
 
 interface IEditorProps {
   name: string;
@@ -59,6 +60,13 @@ const Editor = ({
           />
         )}
       />
+      {errors?.[`${name}`]?.message && (
+        <Box marginTop={5}>
+          <FormHelperText error>
+            {errors?.[`${name}`]?.message as any}
+          </FormHelperText>
+        </Box>
+      )}
     </Fragment>
   );
 };

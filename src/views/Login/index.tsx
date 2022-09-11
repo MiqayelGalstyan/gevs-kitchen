@@ -66,6 +66,11 @@ const Login = (): JSX.Element => {
                           message: "Invalid email",
                         },
                       }}
+                      InputProps={{
+                        inputProps: {
+                          maxLength: 320,
+                        },
+                      }}
                     />
                     <HPInput
                       type="password"
@@ -75,12 +80,17 @@ const Login = (): JSX.Element => {
                       rules={{
                         required: { value: true, message: "Required Field" },
                         minLength: {
-                          value: 8,
-                          message: "At least 8 characters",
+                          value: 5,
+                          message: "At least 5 characters",
                         },
                         maxLength: {
-                          value: 30,
-                          message: "Max 30 characters",
+                          value: 50,
+                          message: "Max 50 characters",
+                        },
+                      }}
+                      InputProps={{
+                        inputProps: {
+                          maxLength: 50,
                         },
                       }}
                     />
