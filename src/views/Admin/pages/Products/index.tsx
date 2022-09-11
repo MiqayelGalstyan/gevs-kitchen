@@ -71,11 +71,17 @@ const Products = (): JSX.Element => {
         layout: (row: IProduct) =>
           row.categories.length > 0 ? (
             <React.Fragment>
-              {row.categories.map((item: string, index: number) => (
-                <Typography variant="subtitle2" key={index}>
-                  {item}
-                </Typography>
-              ))}
+              {row.categories.map((item: any, index: number) => {
+                return (
+                  <Typography
+                    variant="subtitle2"
+                    marginBottom={1}
+                    key={index}
+                  >
+                    {item.name}
+                  </Typography>
+                );
+              })}
             </React.Fragment>
           ) : (
             <DataMissingChip />

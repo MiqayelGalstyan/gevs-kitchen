@@ -16,7 +16,12 @@ const defaultColumns = [
     title: "Description",
     layout(row: IProduct): string | JSX.Element {
       return row.description ? (
-        <Box>
+        <Box
+          width={155}
+          overflow="hidden"
+          textOverflow="ellipsis"
+          maxHeight={60}
+        >
           {row.description}
         </Box>
       ) : (

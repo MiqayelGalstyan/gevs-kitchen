@@ -1,3 +1,4 @@
+import { ICategory } from "./categories.interface";
 import { IGridBaseResponse } from "./common.interface";
 
 export interface IProductsInitialState {
@@ -25,9 +26,18 @@ export interface IProduct {
 export interface IAddEditProduct {
     id: number;
     name: string;
+    description: string;
+    price: number;
+    categoryIds: number[];
+    images: string[];
 }
 
 export interface IGetProductByIdResponse {
     id: number;
     name: string;
+    categories: ICategory[];
+    creationDate: string;
+    description: string;
+    images: string[];
+    price: number;
 }

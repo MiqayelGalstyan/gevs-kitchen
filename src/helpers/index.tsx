@@ -13,7 +13,11 @@ export const getOptionsByIds = (ids: any, options: any[], isSingle: any) => {
     : [options.find((option) => option.id === parseInt(ids))];
 };
 
-export function handleKeyPress(e: { key: any; target: { value: string | any[]; }; preventDefault: () => void; }) {
+export function handleKeyPress(e: {
+  key: any;
+  target: { value: string | any[] };
+  preventDefault: () => void;
+}) {
   const characterCode = e.key;
   if (characterCode === "Backspace") {
     return;
@@ -44,7 +48,11 @@ export const handleDownload = (url: string, name = "", extension = ".xlsx") => {
   link?.parentNode?.removeChild(link);
 };
 
-export const latinAlphabeticalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
+export const latinAlphabeticalHandler = (event: {
+  charCode: number;
+  which: number;
+  preventDefault: () => void;
+}) => {
   const regex = /[A-Za-z!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -53,7 +61,11 @@ export const latinAlphabeticalHandler = (event: { charCode: number; which: numbe
   }
 };
 
-export const internationalAlphabeticalsAndNumbersHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
+export const internationalAlphabeticalsAndNumbersHandler = (event: {
+  charCode: number;
+  which: number;
+  preventDefault: () => void;
+}) => {
   const regex = /[A-Za-zА-Яа-я0-9!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -77,7 +89,11 @@ export const LSRemoveMultiple = (data: any[]) => {
   });
 };
 
-export const latinAlphabeticalAndNumericalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
+export const latinAlphabeticalAndNumericalHandler = (event: {
+  charCode: number;
+  which: number;
+  preventDefault: () => void;
+}) => {
   const regex = /[A-Za-z0-9!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -86,7 +102,11 @@ export const latinAlphabeticalAndNumericalHandler = (event: { charCode: number; 
   }
 };
 
-export const lowerCaseLatinAlphabeticalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
+export const lowerCaseLatinAlphabeticalHandler = (event: {
+  charCode: number;
+  which: number;
+  preventDefault: () => void;
+}) => {
   const regex = /[a-z0-9!@#$.%^&*()_|}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -95,7 +115,11 @@ export const lowerCaseLatinAlphabeticalHandler = (event: { charCode: number; whi
   }
 };
 
-export const onlyAlphabeticalHandler = (event: { charCode: number; which: number; preventDefault: () => void; }) => {
+export const onlyAlphabeticalHandler = (event: {
+  charCode: number;
+  which: number;
+  preventDefault: () => void;
+}) => {
   const regex = /[A-Za-zԱ-Ֆա-ֆА-Яа-я}{~">:<?/\][\\=\- ]/g;
   let key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
   if (!regex.test(key)) {
@@ -104,7 +128,10 @@ export const onlyAlphabeticalHandler = (event: { charCode: number; which: number
   }
 };
 
-export const onlyNumericalPasteHandler = (event: { clipboardData: { getData: (arg0: string) => any; }; preventDefault: () => void; }) => {
+export const onlyNumericalPasteHandler = (event: {
+  clipboardData: { getData: (arg0: string) => any };
+  preventDefault: () => void;
+}) => {
   const value = event.clipboardData.getData("Text");
   if (!Number.isInteger(parseInt(value))) {
     event.preventDefault();
@@ -112,7 +139,15 @@ export const onlyNumericalPasteHandler = (event: { clipboardData: { getData: (ar
   }
 };
 
-export const onlyNumericalHandler = (event: { charCode: number; which: number; target: { value: string | string[]; }; preventDefault: () => void; }, allowFloat: any) => {
+export const onlyNumericalHandler = (
+  event: {
+    charCode: number;
+    which: number;
+    target: { value: string | string[] };
+    preventDefault: () => void;
+  },
+  allowFloat: any
+) => {
   const regex = /^[0-9]*$/g;
   const key = String.fromCharCode(
     !event.charCode ? event.which : event.charCode
@@ -156,7 +191,10 @@ export const toLocalDate = (utcData: string, returnString: boolean = false) => {
   );
 };
 
-export const debounce = (func: { (nextValue: string): void; apply?: any; }, delay: number | undefined) => {
+export const debounce = (
+  func: { (nextValue: string): void; apply?: any },
+  delay: number | undefined
+) => {
   let timer: string | number | NodeJS.Timeout | undefined;
   return function () {
     let self = this;
@@ -180,7 +218,19 @@ export const disabledDateToYesterday = (current: any) => {
   return current && current < moment().subtract(1, "days");
 };
 
-export const dataUrlToFile = async (dataUrl: RequestInfo | URL, fileName: string, format = "png") => {
+export const toBase64 = (file: any) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
+export const dataUrlToFile = async (
+  dataUrl: RequestInfo | URL,
+  fileName: string,
+  format = "png"
+) => {
   const res = await fetch(dataUrl);
   const blob = await res.blob();
   return new File([blob], fileName, { type: `image/${format}` });

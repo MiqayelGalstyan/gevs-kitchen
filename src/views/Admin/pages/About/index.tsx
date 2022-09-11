@@ -72,7 +72,7 @@ const AdminAbout = (): JSX.Element => {
       <Box p={2} component={Paper} marginTop={3} marginBottom={2}>
         <FormProvider {...methods}>
           <Typography variant="h3" marginBottom={5}>
-            Update About
+            Update About Page
           </Typography>
           <Editor name="text" />
           <Box marginTop={3}>
@@ -81,7 +81,7 @@ const AdminAbout = (): JSX.Element => {
               variant="contained"
               onClick={handleSubmit(onSubmit)}
             >
-              Update
+              Save
             </HPLoadingButton>
           </Box>
         </FormProvider>

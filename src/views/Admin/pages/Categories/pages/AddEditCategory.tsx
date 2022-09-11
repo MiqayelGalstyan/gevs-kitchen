@@ -93,7 +93,7 @@ const AddEditCategory = (): JSX.Element => {
             }}
           />
           <Box fontSize="11px" color="#768192">
-            Category name in (en)
+            Category name
           </Box>
         </Box>
       </FormProvider>
