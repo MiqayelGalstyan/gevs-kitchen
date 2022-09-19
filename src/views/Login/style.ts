@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import LogoAdmin from "../../assets/Logo.svg";
+import LogoAdmin from "../../assets/images/Logo.svg";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {

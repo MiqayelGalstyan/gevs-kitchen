@@ -1,7 +1,6 @@
 import { useCallback, useState, useRef } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -17,10 +16,8 @@ import {
 import { makeStyles } from "@mui/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { signOut } from "../../store/slicers/auth";
-// import { getAdminUser } from "store/slicers/users";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {

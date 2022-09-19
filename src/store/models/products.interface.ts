@@ -14,6 +14,7 @@ export interface IProductsGridResponse extends IGridBaseResponse {
 }
 
 export interface IProduct {
+    name: string;
     id: number;
     images: string[];
     description: string;
@@ -21,6 +22,7 @@ export interface IProduct {
     categories: string[];
     price: number;
     created_at: string;
+    isTop: boolean;
 }
 
 export interface IAddEditProduct {
@@ -30,6 +32,7 @@ export interface IAddEditProduct {
     price: number;
     categoryIds: number[];
     images: string[];
+    isTop: boolean;
 }
 
 export interface IGetProductByIdResponse {

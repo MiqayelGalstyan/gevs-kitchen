@@ -1,5 +1,6 @@
 import Home from "../views/Home";
 import AdminLayout from "../layouts/AdminLayout/AdminLayout";
+import MainLayout from "../layouts/MainLayout";
 import Login from "../views/Login";
 import { ELStorage } from "../store/config/constants";
 import { Navigate } from "react-router";
@@ -9,17 +10,44 @@ import AdminProducts from "../views/Admin/pages/Products";
 import AddEditCategory from "../views/Admin/pages/Categories/pages/AddEditCategory";
 import AddEditProduct from "../views/Admin/pages/Products/pages/AddEditProduct";
 import AdminAbout from "../views/Admin/pages/About";
-
-const mainRoutes = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-];
+import ProductsList from '../views/Products';
+import ProductDetails from "../views/ProductDetails";
+import About from "../views/About";
 
 const getAllRoutes = () => {
   return [
-    ...mainRoutes,
+    {
+      path: "/",
+      element: (
+        <MainLayout>
+          <Home />
+        </MainLayout>
+      ),
+    },
+    {
+      path: "/products/:id",
+      element: (
+        <MainLayout>
+          <ProductsList />
+        </MainLayout>
+      ),
+    },
+    {
+      path: "/productDetails/:id",
+      element: (
+        <MainLayout>
+          <ProductDetails />
+        </MainLayout>
+      ),
+    },
+    {
+      path: "/about-us",
+      element: (
+        <MainLayout>
+          <About />
+        </MainLayout>
+      ),
+    },
     ...(!localStorage.getItem(ELStorage.accessToken)
       ? [
           {

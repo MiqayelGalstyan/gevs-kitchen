@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Table from "../../../../shared/ui/Table";
 import React, { useMemo, useState } from "react";
 import useTable from "../../../../helpers/useTable/useTable";

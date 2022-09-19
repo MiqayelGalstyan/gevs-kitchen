@@ -1,5 +1,4 @@
 import { Fragment, useMemo } from "react";
-import { useDispatch } from "react-redux";
 import { useRoutes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@mui/material/styles";
@@ -9,8 +8,6 @@ import { getRoutes } from "./router/routes";
 import "react-perfect-scrollbar/dist/css/styles.css";
 
 const App = () => {
-  const dispatch = useDispatch();
-
   const { appRoutes } = getRoutes();
 
   const routes = useMemo(() => {

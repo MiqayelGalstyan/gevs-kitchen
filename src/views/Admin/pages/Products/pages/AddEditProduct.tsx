@@ -32,6 +32,7 @@ import HpNumberInput from "../../../../../shared/ui/HpNumberInput";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useStyles } from "../styles";
 import HPAutocomplete from "../../../../../shared/ui/HPAutocomplete";
+import HPSwitch from "../../../../../shared/ui/HPSwitch";
 import { ICategory } from "../../../../../store/models/categories.interface";
 import { fetchCategoriesGrid } from "../../../../../store/slicers/categories";
 
@@ -48,6 +49,7 @@ interface IFormData {
   categoryIds: any[];
   description: string;
   price: number;
+  isTop: boolean;
 }
 
 const MAX_FILE_SIZE = 2;
@@ -74,6 +76,7 @@ const AddEditProduct = (): JSX.Element => {
       price: 0,
       categoryIds: [],
       images: [],
+      isTop: false,
     },
   });
 
@@ -117,7 +120,7 @@ const AddEditProduct = (): JSX.Element => {
   const fetchCategories = useCallback(async () => {
     setLoaded(true);
     const { meta, payload }: any = await dispatch(
-      fetchCategoriesGrid(`?page=1&pageSize=2000`)
+      fetchCategoriesGrid(`page=1&pageSize=2000`)
     );
     if (meta.requestStatus !== ERequestStatus.FULFILLED) {
       setLoaded(false);
@@ -309,6 +312,9 @@ const AddEditProduct = (): JSX.Element => {
           <Box fontSize="11px" color="#768192">
             You can choose category for product
           </Box>
+        </Box>
+        <Box py={1}>
+          <HPSwitch name="isTop" label="Top Product" />
         </Box>
         <Box py={1}>
           <HpNumberInput

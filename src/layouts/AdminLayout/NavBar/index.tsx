@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Box, Divider, Drawer, List } from "@mui/material";
@@ -6,7 +7,7 @@ import ScrollArea from "../../../shared/containers/ScrollArea";
 import NavItem from "./NavItem";
 import { useSidebarItems } from "./routesData";
 import NestedItems from "../../../layouts/AdminLayout/NavBar/NestedItems";
-import LogoAdmin from "../../../assets/Logo.svg";
+import LogoAdmin from "../../../assets/images/Logo.svg";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
