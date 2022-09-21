@@ -14,6 +14,14 @@ export const SignIn = createAsyncThunk<ISignInResponse, ISignInRequest>(
   thunkOptions
 );
 
+
+export const checkUserIsAuthenticated = createAsyncThunk<any>(
+  `${name}/checkUserIsAuthenticated`,
+  async () =>
+      (await api.get(`${EBaseUrl.API_KEY}/Users/IsAuthenticated`)).data,
+  thunkOptions
+);
+
 const initialState = {
   isAuth: !!localStorage.getItem(ELStorage.accessToken),
 };

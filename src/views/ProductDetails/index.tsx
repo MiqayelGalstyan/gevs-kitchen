@@ -18,6 +18,7 @@ const ProductDetails = (): JSX.Element => {
 
   const [productData, setProductData] = useState<IProduct | null>(null);
   const [loaded, setLoaded] = useState<boolean>(false);
+  const [productMainImage, setProductMainImage] = useState<string>("");
 
   const fetchProductDetails = useCallback(async () => {
     setLoaded(true);
@@ -28,6 +29,7 @@ const ProductDetails = (): JSX.Element => {
     }
     const typedPayload = payload as IProduct;
     setProductData(typedPayload);
+    setProductMainImage(typedPayload.images[0]);
     setLoaded(false);
   }, [dispatch, id]);
 
@@ -37,9 +39,13 @@ const ProductDetails = (): JSX.Element => {
 
   const additionalImages = useMemo(() => {
     return productData?.images.length > 1
-      ? productData?.images.filter((_: string, index: number) => index !== 0)
+      ? productData?.images.map((item: string) => item)
       : [];
   }, [productData?.images]);
+
+  const handleChangeMainImage = (currentImg: string) => {
+    setProductMainImage(currentImg);
+  };
 
   if (loaded) {
     return (
@@ -63,7 +69,7 @@ const ProductDetails = (): JSX.Element => {
         <Box className={styles.container}>
           <Box className={styles.imgArea}>
             <Box className={styles.shadowedBorder}>
-              <img src={productData?.images[0]} alt={`product-img`} />
+              <img src={productMainImage} alt={`product-img`} />
               <img src={Line} className={styles.lineImg} alt="line" />
             </Box>
             {additionalImages.length > 0 && (
@@ -74,11 +80,17 @@ const ProductDetails = (): JSX.Element => {
                     additionalImages.length > 2
                       ? "space-between"
                       : "flex-start",
+                  width: additionalImages.length > 2 ? "80%" : "90%",
                 }}
               >
                 {additionalImages.map((item: string, index: number) => (
                   <Box key={index} className="additional-img-area">
-                    <img src={item} alt={`additional-product-img${index}`} />
+                    <img
+                      src={item}
+                      className={productMainImage === item ? "active" : ""}
+                      alt={`additional-product-img${index}`}
+                      onClick={() => handleChangeMainImage(item)}
+                    />
                   </Box>
                 ))}
               </Box>

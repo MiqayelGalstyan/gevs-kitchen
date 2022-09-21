@@ -157,6 +157,9 @@ const useStyles = makeStyles((theme: any) => ({
                 flexDirection: 'column',
                 justifyContent: 'flex-start',
                 alignItems: 'flex-start',
+                minHeight: '250px',
+                overflowY: 'auto',
+                height: '100%',
             }
         }
     },

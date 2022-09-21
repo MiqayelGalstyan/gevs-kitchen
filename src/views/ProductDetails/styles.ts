@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme: any) => ({
             maxWidth: '100%',
             width: '100%',
             height: 'auto',
+            minHeight: '420px',
         }
     },
     imagesList: {
@@ -58,12 +59,18 @@ const useStyles = makeStyles((theme: any) => ({
         alignItems: 'center',
         flexWrap: 'wrap',
         marginTop: 70,
+        maxWidth: '100%',
         '& .additional-img-area': {
             width: '25%',
             marginBottom: 15,
             '& img': {
-                width: '100%',
-                height: 'auto',
+                width: '150px',
+                height: '120px',
+                objectFit: 'cover',
+                cursor: 'pointer',
+            },
+            '& img.active': {
+                border: '6px solid #B2B1B0',
             }
         },
         '& .additional-img-area:nth-child(3n+1)': {

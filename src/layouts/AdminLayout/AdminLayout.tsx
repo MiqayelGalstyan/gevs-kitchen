@@ -1,11 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import NavBar from "./NavBar";
 import TopBar from "./TopBar";
 import ScrollArea from "../../shared/containers/ScrollArea";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
+import { checkUserIsAuthenticated } from "../../store/slicers/auth";
+import { ERequestStatus } from "../../store/config/constants";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -71,10 +75,23 @@ const AdminLayout = ({ children }: IAdminLayoutProps) => {
   const location = useLocation();
   const [scrollAreaRef, setScrollAreaRef] = useState<HTMLElement | null>(null);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
 
   const getContainerRef = (ref: HTMLElement) => {
     setScrollAreaRef(ref);
   };
+
+  const fetchInitial = useCallback(async () => {
+    const { meta } = await dispatch(checkUserIsAuthenticated());
+    if (meta.requestStatus !== ERequestStatus.FULFILLED) {
+      window.location.href = "/login";
+      return;
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchInitial();
+  }, [fetchInitial]);
 
   useEffect(() => {
     if (scrollAreaRef) {
