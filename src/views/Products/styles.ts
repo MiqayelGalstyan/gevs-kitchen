@@ -4,6 +4,9 @@ const useStyles = makeStyles((theme: any) => ({
     productsPageWrapper: {
         marginTop: '66px',
     },
+    noResults: {
+        color: 'black',
+    },
     mainSection: {
         padding: '0 4%',
         display: 'flex',
@@ -11,6 +14,11 @@ const useStyles = makeStyles((theme: any) => ({
         alignItems: 'center',
         marginTop: '48px',
         flexWrap: 'wrap',
+        '& $noResults': {
+            margin: '0 auto',
+            fontSize: 20,
+            fontWeight: 'bold',
+        }
     },
     categoryContainer: {
         '& .category-title': {
@@ -44,13 +52,13 @@ const useStyles = makeStyles((theme: any) => ({
         maxWidth: '100%',
         marginBottom: '30px',
         '&:nth-child(3n+1)': {
-            marginRight:'15px',
+            marginRight: '15px',
         },
         '&:nth-child(3n+2)': {
-            margin:'0 15px 30px',
+            margin: '0 15px 30px',
         },
         '&:nth-child(3n)': {
-            marginLeft:'15px',
+            marginLeft: '15px',
         },
     },
     imgArea: {

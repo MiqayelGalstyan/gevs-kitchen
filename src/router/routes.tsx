@@ -33,7 +33,7 @@ const getAllRoutes = () => {
       ),
     },
     {
-      path: "/productDetails/:id",
+      path: "/product-details/:id",
       element: (
         <MainLayout>
           <ProductDetails />

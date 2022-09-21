@@ -2,17 +2,15 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme: any) => ({
     slider: {
-        padding: '39px 2%',
-        '& .slick-list': {
-            overflow: 'hidden',
-        },
-        '& .slick-track': {
-            margin: 'inherit'
-        },
+        padding: '39px 3%',
         '& .react-multi-carousel-list': {
-            padding: '0 1.2%',
             justifyContent: 'space-between',
             position: 'static',
+            '& .react-multi-carousel-item': {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end',
+            }
         },
         '& .carousel-button-group': {
             position: 'absolute',
@@ -32,7 +30,22 @@ const useStyles = makeStyles((theme: any) => ({
                 top: -10,
                 cursor: 'pointer',
             },
-        }
+        },
+        '& .react-multi-carousel-item:nth-child(3n+1)': {
+            '& $item': {
+                marginRight: 30,
+            }
+        },
+        '& .react-multi-carousel-item:nth-child(3n+2)': {
+            '& $item': {
+                margin: '0 15px',
+            }
+        },
+        '& .react-multi-carousel-item:nth-child(3n)': {
+            '& $item': {
+                marginLeft: 30,
+            }
+        },
     },
     item: {
         display: 'flex',
@@ -42,7 +55,7 @@ const useStyles = makeStyles((theme: any) => ({
         boxShadow: '0px 4px 4px rgb(0 0 0 / 50%)',
         borderRadius: 20,
         padding: '10% 7%',
-        width: '488px',
+        width: '437px',
 
     },
     imgArea: {
@@ -106,7 +119,7 @@ const useStyles = makeStyles((theme: any) => ({
             lineHeight: '18px',
             color: '#854C4C',
             marginTop: 9,
-            marginLeft:'auto',
+            marginLeft: 'auto',
         }
     },
     txtAreaInner: {

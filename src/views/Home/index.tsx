@@ -106,7 +106,7 @@ const Home = (): JSX.Element => {
                         </Typography>
                         <Link
                           className={`${styles.linkToDetails} dark`}
-                          to={`/productDetails/${products[0]?.id}`}
+                          to={`/product-details/${products[0]?.id}`}
                         >
                           <span>Details</span>
                         </Link>
@@ -136,7 +136,7 @@ const Home = (): JSX.Element => {
                         </Typography>
                         <Link
                           className={`${styles.linkToDetails} light`}
-                          to={`/productDetails/${products[1]?.id}`}
+                          to={`/product-details/${products[1]?.id}`}
                         >
                           <span>Details</span>
                         </Link>

@@ -9,6 +9,7 @@ import useStyles from "./styles";
 import { fetchCategoriesGrid } from "../../store/slicers/categories";
 import { ERequestStatus } from "../../store/config/constants";
 import { useLocation } from "react-router";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 interface IMainLayoutProps {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ const MainLayout = ({ children }: IMainLayoutProps): JSX.Element => {
   const styles = useStyles();
   const [open, setOpen] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
+  const [scrollBtnVisible, setScrollBtnVisible] = useState<boolean>(false);
   const location = useLocation();
 
   const handleOpenSidebar = () => {
@@ -38,14 +40,33 @@ const MainLayout = ({ children }: IMainLayoutProps): JSX.Element => {
   }, [fetchInitial]);
 
   useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 450) {
+        setScrollBtnVisible(true);
+      } else {
+        setScrollBtnVisible(false);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     setOpen(false);
+    setScrollBtnVisible(false);
   }, [location.pathname]);
 
   useEffect(() => {
     return () => {
       setOpen(false);
+      setScrollBtnVisible(false);
     };
   }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <Box className={styles.wrapper}>
@@ -53,6 +74,14 @@ const MainLayout = ({ children }: IMainLayoutProps): JSX.Element => {
       <Sidebar open={open} />
       <Box className={styles.content}>{children}</Box>
       <Footer />
+      {scrollBtnVisible && (
+        <Box
+          onClick={handleScrollToTop}
+          className={styles.scrollToTopBtn}
+        >
+          <ExpandLessIcon />
+        </Box>
+      )}
     </Box>
   );
 };

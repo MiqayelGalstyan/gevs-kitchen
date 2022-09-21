@@ -54,7 +54,27 @@ const useStyles = makeStyles((theme: any) => ({
         }
     },
     imagesList: {
-
+        display: 'flex',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        marginTop: 70,
+        '& .additional-img-area': {
+            width: '25%',
+            marginBottom: 15,
+            '& img': {
+                width: '100%',
+                height: 'auto',
+            }
+        },
+        '& .additional-img-area:nth-child(3n+1)': {
+            marginRight: 10,
+        },
+        '& .additional-img-area:nth-child(3n+2)': {
+            margin: '0 10px 15px',
+        },
+        '& .additional-img-area:nth-child(3n)': {
+            marginLeft: 10,
+        },
     },
     txtArea: {
         marginTop: '40px',

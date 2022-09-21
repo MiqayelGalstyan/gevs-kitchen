@@ -28,24 +28,21 @@ const ProductsList = (): JSX.Element => {
         fetchProductsGrid(`page=1&pageSize=2000&CategoryIds=${id}`)
       );
       if (meta.requestStatus !== ERequestStatus.FULFILLED) {
-        // setLoaded(false);
+        setLoaded(false);
         return;
       }
-      // setLoaded(false);
+      setLoaded(false);
     }
   }, [dispatch, id]);
 
   const fetchCategory = useCallback(async () => {
-    setLoaded(true);
     if (id) {
       const { meta, payload } = await dispatch(getCategoryById(Number(id)));
       if (meta.requestStatus !== ERequestStatus.FULFILLED) {
-        // setLoaded(false);
         return;
       }
       const typedPayload = payload as IGetCategoryByIdResponse;
       setCategoryData(typedPayload);
-      // setLoaded(false);
     }
   }, [dispatch, id]);
 
@@ -90,14 +87,16 @@ const ProductsList = (): JSX.Element => {
                       Name - {item.name}
                     </Typography>
                     <Typography className="price">{item.price}$</Typography>
-                    <Link className="linkTo" to={`/productDetails/${item.id}`}>
+                    <Link className="linkTo" to={`/product-details/${item.id}`}>
                       Details
                     </Link>
                   </Box>
                 </Box>
               ))
             ) : (
-              <Typography variant="h6">No Results</Typography>
+              <Typography className={styles.noResults}>
+                No Results
+              </Typography>
             )}
           </section>
         </React.Fragment>

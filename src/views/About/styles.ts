@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme: any) => ({
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'flex-start',
-        boxShadow: '0px 4px 4px rgb(0 0 0 / 50%)',
         borderRadius: 20,
         padding: '7% 11%',
         width: '98%',
