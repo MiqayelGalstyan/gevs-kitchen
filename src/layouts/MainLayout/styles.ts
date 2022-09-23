@@ -127,7 +127,7 @@ const useStyles = makeStyles((theme: any) => ({
             background: '#000000',
             display: 'inline-block',
             position: 'absolute',
-            top: -1,
+            top: 0,
             left: 0,
             transition: '0.3s'
         },
@@ -247,6 +247,7 @@ const useStyles = makeStyles((theme: any) => ({
                 display: 'inline-block',
                 position: 'relative',
                 marginLeft: 10,
+                fontSize: 15,
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -277,7 +278,7 @@ const useStyles = makeStyles((theme: any) => ({
             },
             '& ul': {
                 '& li': {
-                    fontSize: 12,
+                    fontSize: '12px!important',
                     '&::before': {
                         height: '3px!important',
                         width: '3px!important',
