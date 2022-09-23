@@ -63,6 +63,16 @@ const useStyles = makeStyles((theme: any) => ({
         display: "flex",
         justifyContent: 'center',
         alignItems: 'center',
+        [theme.breakpoints.down("575")]: {
+            '& a': {
+                display: 'none',
+            }
+        },
+        [theme.breakpoints.down("767")]: {
+            '& a': {
+                fontSize: 18,
+            }
+        },
     },
     rightSide: {
         paddingTop: 7,
@@ -78,6 +88,16 @@ const useStyles = makeStyles((theme: any) => ({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
+        [theme.breakpoints.down("575")]: {
+            '& a': {
+                display: 'none',
+            }
+        },
+        [theme.breakpoints.down("767")]: {
+            '& a': {
+                fontSize: 18,
+            }
+        },
     },
     link: {
         display: 'inline-block',
@@ -134,7 +154,12 @@ const useStyles = makeStyles((theme: any) => ({
                 transform: 'rotate(-45deg)',
                 bottom: 15,
             },
-        }
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                right: 40,
+            }
+        },
     },
     sidebar: {
         boxShadow: '-8px 8px 10px rgba(0, 0, 0, 0.6)',
@@ -160,8 +185,39 @@ const useStyles = makeStyles((theme: any) => ({
                 minHeight: '250px',
                 overflowY: 'auto',
                 height: '100%',
+                '& .links': {
+                    display: 'none',
+                    position: 'relative',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                    width: '90%',
+                    maxWidth: '100%',
+                    marginBottom: 20,
+                    '& a': {
+                        color: 'white',
+                        fontSize: 13,
+                        textTransform: 'uppercase',
+                        display: 'inline-block',
+                        marginBottom: 15,
+                    }
+                },
+                [theme.breakpoints.down("575")]: {
+                    '& .links': {
+                        display: 'flex',
+                        '&::after': {
+                            content: "''",
+                            position: 'absolute',
+                            left: 0,
+                            bottom: 0,
+                            height: 2,
+                            width: '100%',
+                            background: '#FFF',
+                        }
+                    }
+                }
             }
-        }
+        },
     },
     sidebarOpened: {
         right: 17,
@@ -170,7 +226,12 @@ const useStyles = makeStyles((theme: any) => ({
         padding: '9px 11px',
         '& $sidebarContent': {
             display: 'block',
-        }
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                width: 300,
+            }
+        },
     },
     sidebarContent: {
         border: '3px solid #FFFFFF',
@@ -181,10 +242,11 @@ const useStyles = makeStyles((theme: any) => ({
             '& li': {
                 color: 'white',
                 marginBottom: 15,
-                textTransform: 'upperCase',
+                textTransform: 'uppercase',
                 cursor: 'pointer',
                 display: 'inline-block',
                 position: 'relative',
+                marginLeft: 10,
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -194,8 +256,35 @@ const useStyles = makeStyles((theme: any) => ({
                     height: 5,
                     borderRadius: '50%',
                     background: 'white',
+                    border: '1px solid white',
                 },
-            }
+            },
+        },
+        [theme.breakpoints.down("991")]: {
+            '& ul': {
+                '& li': {
+                    '&::before': {
+                        left: '-10px!important',
+                        height: '4px!important',
+                        width: '4px!important',
+                    },
+                }
+            },
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                padding: '40px 20px',
+            },
+            '& ul': {
+                '& li': {
+                    fontSize: 12,
+                    '&::before': {
+                        height: '3px!important',
+                        width: '3px!important',
+                        left: '-10px!important',
+                    },
+                }
+            },
         }
     },
     sidebarNoResults: {
@@ -237,6 +326,25 @@ const useStyles = makeStyles((theme: any) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '13px 40px 17px',
+        '& .address-area': {
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+        },
+        [theme.breakpoints.down("991")]: {
+            '& .address-area': {
+                flexDirection: 'column',
+                textAlign: 'left',
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start',
+            },
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                padding: '13px 15px 17px',
+                flexDirection: 'column',
+            },
+        },
     },
     footerTextArea: {
 
@@ -257,9 +365,18 @@ const useStyles = makeStyles((theme: any) => ({
     footerLogo: {
         width: 129,
         height: 130,
+        [theme.breakpoints.down("575")]: {
+            marginTop: 15,
+        }
     },
     footerItem: {
         width: '33.3%',
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                width: '100%',
+                textAlign: 'center',
+            }
+        },
     },
     footerTitle: {
         fontSize: 20,
@@ -279,6 +396,9 @@ const useStyles = makeStyles((theme: any) => ({
         color: 'white',
         lineHeight: '22px',
         marginLeft: '13.75px!important',
+        [theme.breakpoints.down("767")]: {
+            fontSize: 14,
+        }
     }
 }));
 

@@ -1,10 +1,20 @@
-import {makeStyles, createStyles} from '@mui/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() =>
   createStyles({
     "@global": {
+      '@font-face': [
+        {
+          fontFamily: 'Georgia',
+          src: "asset-url(../../assets/fonts/Georgia.ttf) format('truetype')"
+        },
+        {
+          fontFamily: 'Inter-Bold',
+          src: "asset-url(../../assets/fonts/Inter-Bold.ttf) format('truetype')"
+        },
+      ],
       '.ant-picker-dropdown': {
-        zIndex:'10000'
+        zIndex: '10000'
       },
       'legend': {
         width: 'auto'
@@ -13,6 +23,7 @@ const useStyles = makeStyles(() =>
         boxSizing: "border-box",
         margin: 0,
         padding: 0,
+        fontFamily:'Inter-Regular',
       },
       html: {
         "-webkit-font-smoothing": "antialiased",
@@ -21,13 +32,13 @@ const useStyles = makeStyles(() =>
         width: "100%",
       },
       body: {
-        fontFamily: ["Mardoto", "Roboto", "Arial"].join(","),
+        fontFamily:'Inter-Regular',
         backgroundColor: "#f4f6f8",
         height: "100%",
         width: "100%",
       },
       textarea: {
-        fontFamily: ["Mardoto", "Roboto", "Arial"].join(","),
+        fontFamily:'Inter-Regular',
       },
       ".detail-container": {
         margin: "30px",

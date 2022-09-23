@@ -38,6 +38,16 @@ const useStyles = makeStyles((theme: any) => ({
             width: '96%',
             maxWidth: '100%',
             margin: '15px auto 0',
+        },
+        [theme.breakpoints.down("991")]: {
+            '& .category-title': {
+                fontSize: 20,
+            }
+        },
+        [theme.breakpoints.down("575")]: {
+            '& .category-title': {
+                fontSize: 15,
+            }
         }
     },
     item: {
@@ -60,10 +70,47 @@ const useStyles = makeStyles((theme: any) => ({
         '&:nth-child(3n)': {
             marginLeft: '15px',
         },
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                width: '48.5%',
+            },
+            '&:nth-child(3n+1)': {
+                marginBottom: 30,
+                marginRight: 0,
+            },
+            '&:nth-child(3n+2)': {
+                margin: '0 0 30px',
+            },
+            '&:nth-child(3n)': {
+                marginBottom: 30,
+                marginLeft: 0,
+            },
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                width: '100%',
+            },
+            '&:nth-child(3n+1)': {
+                marginBottom: 30,
+                marginRight: 0,
+            },
+            '&:nth-child(3n+2)': {
+                margin: '0 0 30px',
+            },
+            '&:nth-child(3n)': {
+                marginBottom: 30,
+                marginLeft: 0,
+            },
+        }
     },
     imgArea: {
         position: 'relative',
         width: '60%',
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                width: '50%',
+            }
+        }
     },
     shadowedBorder: {
         border: '6px solid #B2B1B0',
@@ -79,6 +126,33 @@ const useStyles = makeStyles((theme: any) => ({
             maxWidth: '100%',
             width: '100%',
             height: '203px',
+        },
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                height: '150px',
+                width: '180px',
+                '& img': {
+                    height: '150px',
+                }
+            }
+        },
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                height: '140px',
+                width: '170px',
+                '& img': {
+                    height: '140px',
+                }
+            }
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                height: '130px',
+                width: '170px',
+                '& img': {
+                    height: '130px',
+                }
+            }
         }
     },
     txtArea: {
@@ -104,6 +178,7 @@ const useStyles = makeStyles((theme: any) => ({
             fontWeight: 700,
             width: '100%',
             textAlign: 'left',
+            fontFamily: 'Georgia'
         },
         '& .txt': {
             fontSize: 30,
@@ -124,6 +199,37 @@ const useStyles = makeStyles((theme: any) => ({
             color: '#854C4C',
             marginTop: 9,
             marginLeft: 'auto',
+        },
+        [theme.breakpoints.down("1600")]: {
+            '&': {
+                paddingLeft: 10,
+            }
+        },
+        [theme.breakpoints.down("1400")]: {
+            '& .title': {
+                wordBreak: 'break-word',
+            }
+        },
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                paddingLeft: 5,
+            },
+            '& .title': {
+                fontSize: 13,
+                height: 40,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+            },
+            '& .linkTo': {
+                fontSize: 13,
+                width: '90px',
+                height: 30,
+            }
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                width: '50%',
+            },
         }
     },
     txtAreaInner: {
@@ -146,6 +252,7 @@ const useStyles = makeStyles((theme: any) => ({
             fontSize: '30px',
             fontWeight: 700,
             color: '#343434',
+            fontFamily: 'Georgia'
         }
     },
 }))

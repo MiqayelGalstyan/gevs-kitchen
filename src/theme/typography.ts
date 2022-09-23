@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-    fontFamily: ["Mardoto", "Roboto", "Arial"].join(","),
+  fontFamily:'Inter-Regular',
     h1: {
       fontWeight: 500,
       fontSize: 35,

@@ -81,7 +81,7 @@ const Home = (): JSX.Element => {
                   <hr className={`${styles.line} first-line`} />
                   <hr className={`${styles.line} second-line`} />
                 </Box>
-                <Box display="flex" justifyContent="center" alignItems="center">
+                <Box className="column-inner">
                   <Box className={`${styles.imgArea} first-item`}>
                     <Box className={styles.shadowedBorder}>
                       <img src={products[0]?.images?.[0]} alt="first-product" />
@@ -116,7 +116,7 @@ const Home = (): JSX.Element => {
                 </Box>
               </Box>
               <Box className={`${styles.column} second-column`}>
-                <Box display="flex" justifyContent="center" alignItems="center">
+                <Box className="column-inner">
                   <Box className={styles.txtArea}>
                     <Box className={styles.txtAreaInner}>
                       <Box>

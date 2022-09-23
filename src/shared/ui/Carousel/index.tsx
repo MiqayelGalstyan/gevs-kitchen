@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { IProduct } from "../../../store/models/products.interface";
 import React from "react";
-// import Slider from "react-slick";
 import useStyles from "./styles";
 import { Link } from "react-router-dom";
 import NextIcon from "../../../assets/icons/rightIcon.svg";
@@ -20,11 +19,11 @@ const responsive = {
     items: 3,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1200 },
     items: 3,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 576 },
+    breakpoint: { max: 1200, min: 576 },
     items: 2,
   },
   mobile: {

@@ -10,6 +10,21 @@ const useStyles = makeStyles((theme: any) => ({
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-end',
+                [theme.breakpoints.down("1500")]: {
+                    '&': {
+                        padding: '0 5px',
+                    }
+                },
+                [theme.breakpoints.down("1200")]: {
+                    '&': {
+                        padding: '0 5px',
+                    }
+                },
+                [theme.breakpoints.down("575")]: {
+                    '&': {
+                        padding: 0,
+                    }
+                }
             }
         },
         '& .carousel-button-group': {
@@ -23,28 +38,41 @@ const useStyles = makeStyles((theme: any) => ({
                 right: 10,
                 top: -10,
                 cursor: 'pointer',
+                [theme.breakpoints.down("991")]: {
+                    '&': {
+                        background: 'white',
+                        borderRadius: '30px',
+                        width: '30px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '5px 15px',
+                    },
+                    '& img': {
+                        width: '15px',
+                    }
+                },
             },
             '& .prev': {
                 position: 'absolute',
                 left: 10,
                 top: -10,
                 cursor: 'pointer',
+                [theme.breakpoints.down("991")]: {
+                    '&': {
+                        background: 'white',
+                        borderRadius: '30px',
+                        width: '30px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '5px 15px',
+                    },
+                    '& img': {
+                        width: '15px',
+                    }
+                },
             },
-        },
-        '& .react-multi-carousel-item:nth-child(3n+1)': {
-            '& $item': {
-                marginRight: 30,
-            }
-        },
-        '& .react-multi-carousel-item:nth-child(3n+2)': {
-            '& $item': {
-                margin: '0 15px',
-            }
-        },
-        '& .react-multi-carousel-item:nth-child(3n)': {
-            '& $item': {
-                marginLeft: 30,
-            }
         },
     },
     item: {
@@ -56,11 +84,20 @@ const useStyles = makeStyles((theme: any) => ({
         borderRadius: 20,
         padding: '10% 7%',
         width: '437px',
-
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                width: '100%',
+            }
+        },
     },
     imgArea: {
         position: 'relative',
         width: '60%',
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                width: '100%',
+            }
+        },
     },
     shadowedBorder: {
         border: '6px solid #B2B1B0',
@@ -75,7 +112,37 @@ const useStyles = makeStyles((theme: any) => ({
             maxWidth: '100%',
             width: '100%',
             height: '203px',
-        }
+        },
+        [theme.breakpoints.down("1500")]: {
+            '&': {
+                width: '150px',
+                height: '150px',
+                '& img': {
+                    height: '150px',
+                    width: '100%',
+                }
+            }
+        },
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                width: '110px',
+                height: '110px',
+                '& img': {
+                    height: '110px',
+                    width: '100%',
+                }
+            }
+        },
+        [theme.breakpoints.down("575")]: {
+            '&': {
+                width: '110px',
+                height: '110px',
+                '& img': {
+                    height: '110px',
+                    width: '100%',
+                }
+            }
+        },
     },
     txtArea: {
         marginTop: '40px',
@@ -100,6 +167,7 @@ const useStyles = makeStyles((theme: any) => ({
             fontWeight: 700,
             width: '100%',
             textAlign: 'left',
+            fontFamily: 'Georgia'
         },
         '& .txt': {
             fontSize: 30,
@@ -120,7 +188,42 @@ const useStyles = makeStyles((theme: any) => ({
             color: '#854C4C',
             marginTop: 9,
             marginLeft: 'auto',
-        }
+        },
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                width: '100%',
+            },
+            '& .title': {
+                fontSize: 13,
+                height: 40,
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+            },
+            '& .price': {
+                fontSize: 13,
+            },
+            '& .linkTo': {
+                width: '100px',
+                height: '30px',
+                fontSize: 13,
+            }
+        },
+        [theme.breakpoints.down("575")]: {
+            '& .title': {
+                fontSize: 12,
+                overflow: 'unset',
+                textOverflow: 'unset',
+                height: 'auto',
+            },
+            '& .price': {
+                fontSize: 12,
+            },
+            '& .linkTo': {
+                width: '90px',
+                height: '30px',
+                fontSize: 13,
+            }
+        },
     },
     txtAreaInner: {
         display: 'flex',
@@ -142,6 +245,7 @@ const useStyles = makeStyles((theme: any) => ({
             fontSize: '30px',
             fontWeight: 700,
             color: '#343434',
+            fontFamily: 'Georgia'
         }
     },
     detailsArea: {

@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme: any) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                flexDirection: 'column',
+            }
+        },
     },
     lineImg: {
         position: 'absolute',
@@ -18,6 +23,21 @@ const useStyles = makeStyles((theme: any) => ({
         bottom: -40,
         width: '90%',
         height: 'auto',
+        [theme.breakpoints.down("1600")]: {
+            width: '60%',
+            left: '-60px',
+            bottom: '-30px',
+        },
+        [theme.breakpoints.down("1400")]: {
+            width: '50%',
+            left: '-50px',
+            bottom: '-30px',
+        },
+        [theme.breakpoints.down("1200")]: {
+            '&': {
+                display: 'none',
+            }
+        },
     },
     column: {
         width: '50%',
@@ -47,10 +67,63 @@ const useStyles = makeStyles((theme: any) => ({
             '& .price': {
                 color: 'white',
                 order: 1,
+                fontFamily: 'Georgia'
             }
+        },
+        '& .column-inner': {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
         },
         '& .first-item': {
             marginTop: '101px',
+        },
+        [theme.breakpoints.down("1600")]: {
+            '&.second-column': {
+                '& $txtArea': {
+                    marginRight: '35px!important',
+                },
+            }
+        },
+        [theme.breakpoints.down("1400")]: {
+            '& $shadowedBorder': {
+                '& img:not($lineImg)': {
+                    height: '250px!important',
+                    width: '250px!important',
+                }
+            },
+            '&.second-column': {
+                '& $txtArea': {
+                    marginRight: '0!important',
+                },
+            }
+        },
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                width: '100%',
+            },
+            '&.second-column': {
+                padding: '80px 25px 60px',
+                '& $txtArea': {
+                    marginTop: '-20px!important',
+                    marginLeft: '0!important',
+                    marginRight: '-20px!important',
+                    marginBottom: 35,
+                },
+                '& .price': {
+                    marginLeft: 25,
+                    fontFamily: 'Georgia'
+                }
+            },
+            '& $shadowedBorder': {
+                '& img:not($lineImg)': {
+                    height: 'auto!important',
+                    width: '323px!important',
+                }
+            },
+            '& .column-inner': {
+                flexDirection: 'column',
+            }
         },
     },
     line: {
@@ -70,6 +143,7 @@ const useStyles = makeStyles((theme: any) => ({
             fontWeight: 700,
             color: 'black',
             marginBottom: '-8px',
+            fontFamily:'Inter-Regular',
         },
         '& .first-line': {
             margin: '0 auto 10px',
@@ -78,7 +152,12 @@ const useStyles = makeStyles((theme: any) => ({
         '& .second-line': {
             margin: '10px auto 0',
             width: '140px',
-        }
+        },
+        [theme.breakpoints.down("991")]: {
+            '& .txt': {
+                fontSize: 35,
+            }
+        },
     },
     imgArea: {
         position: 'relative',
@@ -96,7 +175,15 @@ const useStyles = makeStyles((theme: any) => ({
             marginLeft: '-35px',
             marginTop: '-27px',
             maxWidth: '100%',
-        }
+        },
+        [theme.breakpoints.down("991")]: {
+            '& img:not($lineImg)': {
+                height: 'auto',
+                minHeight: 'unset',
+                marginTop: -15,
+                marginLeft: -15,
+            }
+        },
     },
     txtArea: {
         marginLeft: 26,
@@ -105,6 +192,27 @@ const useStyles = makeStyles((theme: any) => ({
         '& .txt': {
             fontSize: 30,
             fontWeight: 700,
+            maxWidth: '250px',
+            fontFamily:'Inter-Regular',
+        },
+        [theme.breakpoints.down("1400")]: {
+            '&': {
+                marginLeft: 0,
+            },
+            '& .txt': {
+                fontSize: 25,
+                maxWidth: '200px',
+            },
+        },
+        [theme.breakpoints.down("991")]: {
+            '& .txt': {
+                fontSize: 25
+            },
+            '&': {
+                height: 'auto',
+                marginLeft: 15,
+            },
+
         }
     },
     txtAreaInner: {
@@ -119,14 +227,38 @@ const useStyles = makeStyles((theme: any) => ({
             height: '72px',
             textOverflow: 'ellipsis',
             width: '100%',
-            maxWidth: '100%',
+            maxWidth: '250px',
             overflow: 'hidden',
             paddingLeft: '10px',
+            fontFamily: 'Inter-Regular',
         },
         '& .price': {
             fontSize: '30px',
             fontWeight: 700,
             color: '#343434',
+            fontFamily: 'Georgia'
+        },
+        [theme.breakpoints.down("1400")]: {
+            '& .price': {
+                fontSize: '25px',
+                marginRight: 15,
+                marginLeft: 15,
+            },
+            '& .description': {
+                maxWidth: '200px',
+            }
+        },
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                justifyContent: 'flex-start',
+                marginBottom: 15,
+            },
+            '& .description': {
+                fontSize: 13,
+            },
+            '& .price': {
+                fontSize: '25px',
+            }
         }
     },
     detailsArea: {
@@ -135,6 +267,18 @@ const useStyles = makeStyles((theme: any) => ({
         alignItems: 'center',
         width: '307px',
         maxWidth: '100%',
+        [theme.breakpoints.down("1400")]: {
+            '&': {
+                justifyContent: 'flex-start',
+                width: '215px',
+            }
+        },
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                justifyContent: 'flex-start',
+                width: '290px',
+            }
+        },
     },
     linkToDetails: {
         display: 'inline-block',
@@ -169,7 +313,12 @@ const useStyles = makeStyles((theme: any) => ({
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-        }
+        },
+        [theme.breakpoints.down("991")]: {
+            '&': {
+                marginLeft: '25px',
+            }
+        },
     },
     sliderSection: {
         background: 'white',

@@ -5,6 +5,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import useStyles from "../styles";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 interface ISidebarProps {
   open: boolean;
@@ -24,6 +25,10 @@ const Sidebar = ({ open }: ISidebarProps): JSX.Element => {
       <Box className={styles.sidebarContent}>
         {categoriesData?.results?.length > 0 ? (
           <ul>
+            <div className="links">
+                <Link to="/">HOME</Link>
+                <Link to="/about-us">ABOUT US</Link>
+            </div>
             {categoriesData.results.map((item: ICategory, index: number) => (
               <li key={index} onClick={() => handleClickCategory(item.id)}>
                 {item.name}

@@ -24,11 +24,7 @@ const Footer = (): JSX.Element => {
                 +1 5659 56546
               </Typography>
             </Box>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
+            <Box className="address-area">
               <Box className={styles.footerRow}>
                 <img src={Marker} alt="marker" />
                 <Typography variant="inherit" className={styles.footerRowText}>
