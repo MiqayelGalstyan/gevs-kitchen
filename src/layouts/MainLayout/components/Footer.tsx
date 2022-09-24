@@ -40,10 +40,19 @@ const Footer = (): JSX.Element => {
             </Box>
           </Box>
           <Box className={`${styles.footerItem} ${styles.socialMedia}`}>
-            <a target="_black" href="fb" className="link">
+            {/* <a
+              style={{ display: "none" }}
+              target="_black"
+              href="fb"
+              className="link"
+            >
               <img src={Facebook} alt="facebook" />
-            </a>
-            <a target="_black" href="insta" className="link">
+            </a> */}
+            <a
+              target="_black"
+              href="https://www.instagram.com/gevs_xinkali/?igshid=YmMyMTA2M2Y%3D"
+              className="link"
+            >
               <img src={Instagram} alt="instagram" />
             </a>
           </Box>
