@@ -6,7 +6,7 @@ import Telephone from "../../../assets/icons/telephone.svg";
 import Envelope from "../../../assets/icons/envelope.svg";
 import Marker from "../../../assets/icons/marker.svg";
 import Instagram from "../../../assets/icons/instagram.svg";
-import Facebook from "../../../assets/icons/facebook.svg";
+// import Facebook from "../../../assets/icons/facebook.svg";
 
 const Footer = (): JSX.Element => {
   const styles = useStyles();
